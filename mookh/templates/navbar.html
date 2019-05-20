@@ -1,0 +1,67 @@
+
+<head>
+  <style>
+
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <span class="open-slide">
+      <a href="#" onclick="openSlideMenu()">
+        <svg width="30" height="30">
+            <path d="M0,5 30,5" stroke="#000" stroke-width="5"/>
+            <path d="M0,14 30,14" stroke="#000" stroke-width="5"/>
+            <path d="M0,23 30,23" stroke="#000" stroke-width="5"/>
+        </svg>
+      </a>
+    </span>
+    <div>
+
+            
+       
+    <div> 
+            <div class="search-box">
+                <input class="search-txt" type="text" name="" placeholder="Type to search">
+                <a class="search-btn" href="#"></a><i class="fas fa-search"></i>
+            </div>
+            
+            <a class="navbar-brand" href="#">Navbar</a>
+            <a class="navbar-brand" href="#">Navbar</a>
+            <a class="navbar-brand" href="#">Navbar</a>
+    </div>
+            
+            
+          
+  </nav>
+
+  <div id="side-menu" class="side-nav">
+    <h3 style="text-align: center;color:yellow;">mookh</h3>
+    <hr style="border-color: #fff">
+    <a href="#" class="btn-close" onclick="closeSlideMenu()">&times;</a>
+    <a href="#">HOME</a>
+    <a href="#">START SELLING</a>
+    <a href="#">SELLER LOG IN</a>
+    <hr style="border-color: #fff">
+    <a href="#">TICKETS</a>
+    <a href="#">MUSIC</a>
+    <a href="#">E-BOOKS</a>
+    <a href="#">PRODUCTS</a>
+    <a href="#">BUYER LOG IN</a>
+    <hr style="border-color: #fff">
+    <p style="text-align: center;color:#ccc">making commerce social</p>
+  </div>
+
+ 
+  <script>
+    function openSlideMenu(){
+      document.getElementById('side-menu').style.width = '250px';
+      document.getElementById('main').style.marginLeft = '250px';
+    }
+
+    function closeSlideMenu(){
+      document.getElementById('side-menu').style.width = '0';
+      document.getElementById('main').style.marginLeft = '0';
+    }
+  </script>
+</body>
+
