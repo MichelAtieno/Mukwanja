@@ -47,7 +47,7 @@
                                             <img src="{{one_image.poster.url}}" alt="{{one_image.title}}" class="img-responsive">
                                         </div>
                                         <div class="details">
-                                            <a href="">Mookh event<br><span class="btn btn-primary">Purchase Ticket</span></a>
+                                            <a href="{% url 'single_event' event_id=one_image.id %}">{{one_image.title}}<br><span class="btn btn-primary">Purchase Ticket</span></a>
                                         </div>
                                     </div>
                                     {% empty %}
