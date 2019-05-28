@@ -27,12 +27,7 @@
               .swiper-container {width: 100%;padding-top: 50px;padding-bottom: 50px;}
               .swiper-slide {background-position: center;background-size: cover;width: 300px;height: 300px;}
               img{width: 300px;height: 250px;}
-              #slide1{background-color:black;}
-              #slide2{background-color:blue;}
-              #slide3{background-color:red;}
-              #slide4{background-color:green;}
-              #slide5{background-color:yellow;}
-              #slide6{background-color:white;}
+              .col-md-3:hover{background-color:gray;}
             </style>
         </head>
        
@@ -46,15 +41,24 @@
                     <div class="row" id="section1">
                         <div class="swiper-container">
                             <div class="swiper-wrapper">
-                                <div class="swiper-slide" id="slide1">
-                                    <div class="imgBx">
-                                        <img src="static/images/IMG-20190412-WA0012.jpg">                                      
+                                    {% for one_image in events %}
+                                     <div class="swiper-slide" id="slide1">
+                                        <div class="imgBx">
+                                            <img src="{{one_image.poster.url}}" alt="{{one_image.title}}" class="img-responsive">
+                                        </div>
+                                        <div class="details">
+                                            <a href="">Mookh event<br><span class="btn btn-primary">Purchase Ticket</span></a>
+                                        </div>
                                     </div>
-                                    <div class="details">
-                                        <h3>Mookh event<br><span class="btn btn-primary">Purchase Ticket</span></h3>
+                                    {% empty %}
+                                    <div class="swiper-slide" id="slide1">
+                                        <div class="imgBx">       
+                                            <h3>No Events</h3>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="swiper-slide" id="slide2">
+                                    {% endfor %}
+                                
+                                <!-- <div class="swiper-slide" id="slide2">
                                     <div class="imgBx">
                                         <img src="static/images/IMG-20190412-WA0013.jpg">                                      
                                     </div>
@@ -85,38 +89,39 @@
                                     <div class="details">
                                         <h3>Mookh event<br><span class="btn btn-primary">Purchase Ticket</span></h3>
                                     </div>
-                                </div>
+                                </div> -->
                                
                             </div>
                             <!-- Add Pagination -->
                             <div class="swiper-pagination"></div>
 
-                            <div class="swiper-button-next swiper-button-white"></div>
-                            <div class="swiper-button-prev swiper-button-white"></div>
+                            <div class="swiper-button-next swiper-button-yellow"></div>
+                            <div class="swiper-button-prev swiper-button-yellow"></div>
                         </div>
                             
                     </div>
-                    <div class="row">
-                        <div class="col-md-3">
-                            <i class="fas fa-ticket-alt"></i>
-                            <p>TICKETING</p>
-                        </div>
-                        <div class="col-md-3">
-                            <i class="fas fa-music"></i>
-                            <p>MUSIC</p>
-                        </div>
-                        <div class="col-md-3">
-                            <i class="fas fa-book"></i>
-                            <p>EBOOKS</p>
-                        </div>
-                        <div class="col-md-3">
-                            <i class="fas fa-home"></i>
-                            <p>PRODUCTS</p>
-                        </div>
-                        
+                </div>
+                
+                <div class="row" class="main-menu">
+                    <div class="col-md-3">
+                        <a href="#"><i class="fas fa-ticket-alt"></i><p>TICKETING</p></a>  
                     </div>
+                    <div class="col-md-3">
+                        <a href="#"><i class="fas fa-music"></i><p>MUSIC</p></a>
+                    </div>
+                    <div class="col-md-3">
+                        <a href="#"><i class="fas fa-book"></i><p>EBOOKS</p></a>
+                    </div>
+                    <div class="col-md-3">
+                        <a href="#"><i class="fas fa-home"></i> <p>PRODUCTS</p></a>
+                    </div>  
+                </div>
+                
+                <div class="jumbotron">
 
                 </div>
+                
+               
                 
 
                 
