@@ -2,7 +2,10 @@
 {% block content %}
     <html>
         <head>
+            <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+            <link rel="stylesheet" href="static/css/swiper.min.css">
             <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+            
             <style>
               body{font-family:"Arial", Serif;background-color:#f4f4f4;overflow-x:hidden;padding:0;}
               .navbar{background-color:yellow;overflow:hidden;height:63px;}
@@ -20,11 +23,134 @@
               .search-txt{border:none;background:none;outline:none;float:left;padding:0;color:#000;font-size:16px;transition:0.4s;line-height:40px;width:0px;}
               @media(max-width:568px){.navbar-nav{display:none}}
               @media(min-width:568px){/*.open-slide{display:none}*/}
+              /* #section1{background-color: brown;} */
+              .swiper-container {width: 100%;padding-top: 50px;padding-bottom: 50px;}
+              .swiper-slide {background-position: center;background-size: cover;width: 300px;height: 300px;}
+              img{width: 300px;height: 250px;}
+              #slide1{background-color:black;}
+              #slide2{background-color:blue;}
+              #slide3{background-color:red;}
+              #slide4{background-color:green;}
+              #slide5{background-color:yellow;}
+              #slide6{background-color:white;}
             </style>
         </head>
        
         <body>
-            {%include 'navbar.html'%}    
+            
+            <div class="container-fluid">
+                {%include 'navbar.html'%}
+                <div class="jumbotron">
+
+                   
+                    <div class="row" id="section1">
+                        <div class="swiper-container">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide" id="slide1">
+                                    <div class="imgBx">
+                                        <img src="static/images/IMG-20190412-WA0012.jpg">                                      
+                                    </div>
+                                    <div class="details">
+                                        <h3>Mookh event<br><span class="btn btn-primary">Purchase Ticket</span></h3>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide" id="slide2">
+                                    <div class="imgBx">
+                                        <img src="static/images/IMG-20190412-WA0013.jpg">                                      
+                                    </div>
+                                    <div class="details">
+                                        <h3>Mookh event<br><span class="btn btn-primary">Purchase Ticket</span></h3>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide" id="slide3">
+                                    <div class="imgBx">
+                                        <img src="static/images/IMG-20190412-WA0014.jpg">                                      
+                                    </div>
+                                    <div class="details">
+                                        <h3>Mookh event<br><span class="btn btn-primary">Purchase Ticket</span></h3>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide" id="slide4">
+                                    <div class="imgBx">
+                                        <img src="static/images/IMG-20190412-WA0015.jpg">                                      
+                                    </div>
+                                    <div class="details">
+                                        <h3>Mookh event<br><span class="btn btn-primary">Purchase Ticket</span></h3>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide" id="slide5">
+                                    <div class="imgBx">
+                                        <img src="static/images/IMG-20190412-WA0016.jpg">                                      
+                                    </div>
+                                    <div class="details">
+                                        <h3>Mookh event<br><span class="btn btn-primary">Purchase Ticket</span></h3>
+                                    </div>
+                                </div>
+                               
+                            </div>
+                            <!-- Add Pagination -->
+                            <div class="swiper-pagination"></div>
+
+                            <div class="swiper-button-next swiper-button-white"></div>
+                            <div class="swiper-button-prev swiper-button-white"></div>
+                        </div>
+                            
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <i class="fas fa-ticket-alt"></i>
+                            <p>TICKETING</p>
+                        </div>
+                        <div class="col-md-3">
+                            <i class="fas fa-music"></i>
+                            <p>MUSIC</p>
+                        </div>
+                        <div class="col-md-3">
+                            <i class="fas fa-book"></i>
+                            <p>EBOOKS</p>
+                        </div>
+                        <div class="col-md-3">
+                            <i class="fas fa-home"></i>
+                            <p>PRODUCTS</p>
+                        </div>
+                        
+                    </div>
+
+                </div>
+                
+
+                
+
+
+
+            </div>
+            
+            
+            <script type="text/javascript" src="static/js/swiper.min.js"></script>
+            <script>
+                    var swiper = new Swiper('.swiper-container', {
+                      effect: 'coverflow',
+                      grabCursor: true,
+                      centeredSlides: true,
+                      slidesPerView: 'auto',
+                      coverflowEffect: {
+                        rotate: 0,
+                        stretch: -150,
+                        depth: 500,
+                        modifier: 1,
+                        slideShadows : false,
+                      },
+                      loop: true,
+                      pagination: {
+                        el: '.swiper-pagination',
+                        clickable: true,
+                      },
+                      navigation: {
+                        nextEl: '.swiper-button-next',
+                        prevEl: '.swiper-button-prev',
+                    },
+                    });
+            </script> 
         </body>
 
     </html>
