@@ -1,13 +1,126 @@
 {%extends 'base.html'%}
+{% load bootstrap3 %}
 {%block content%}
-        <div class="col-md-4">
+    <html>
+        <head>
+            <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
             
-            <img src="{{event.poster.url}}" alt="{{event.title}}" style="height:400px; width:400px;" class="img-responsive">
-            <h4>{{event.title}}</h4>
-       
-       
-        </div>
+            <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+            
+            <style>
+                body{font-family:"Arial", Serif;background-color:#f4f4f4;overflow-x:hidden;padding:0;}
+                .navbar{background-color:yellow;overflow:hidden;height:63px;}
+                .navbar a{float:left;display:block;color:#000;text-align:center;padding:14px 16px;text-decoration:none;font-size:17px;}
+                .navbar ul{margin:8px 0 0 0;list-style:none;}
+                .navbar a:hover{background-color:#ddd;color:#000;}
+                .side-nav{ height:100%;width:0;position:fixed;z-index:1;top:0;left:0;background-color:#3c4858;opacity:1.5;overflow-x:hidden;padding-top:60px; transition:0.5s;}
+                .side-nav a{padding:10px 10px 10px 30px;text-decoration:none;font-size:22px;color:#ccc;display:block;transition:0.3s;text-align:center;}
+                .side-nav a:hover{color:#fff;}
+                .side-nav .btn-close{position:absolute;top:0;right:22px;font-size:36px;margin-left:50px;}
+                #main{transition:margin-left 0.5s;padding:20px;overflow:hidden;width:100%;}
+                .search-box{position:absolute; top:50%; left:50%; transform: translate(-50%, -50%); height:40px; border-radius:40px;padding:10px;}
+                .search-box:hover > .search-txt{width: 240px; padding: 0 6px;}
+                .search-btn{color:#e84118; float:right; width:0px;height:40px;border-radius:50%;display:flex; justify-content: center; align-items: center;}
+                .search-txt{border:none;background:none;outline:none;float:left;padding:0;color:#000;font-size:16px;transition:0.4s;line-height:40px;width:0px;}
+                @media(max-width:568px){.navbar-nav{display:none}}
+                @media(min-width:568px){/*.open-slide{display:none}*/}
+                .modal{display:none;position:fixed; height:100%;width:100%;overflow:auto;background-color:rgba(0,0,0,0);}
+                .modal-content{background-color:#f4f4f4; margin: 20% auto;padding:20px;width:70%;box-shadow:0 5px 8px 0 rgba(0,0,0,0.2),0 7px 20px 0 rgba(0,0,0,0.17);}
+                .closeBtn {color: #ccc; font-size:30px; float:right;}
+                .closeBtn:hover{color:#000; text-decoration:none; cursor:pointer;}
+            </style>
+        </head>
+        <body>
+                <div class="container-fluid">
+                {%include 'navbar.html'%}
+                    <div class="jumbotron">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <img src="{{event.poster.url}}" alt="{{event.title}}" style="height:400px; width:400px;" class="img-responsive">
+                                    
+                            </div>
+                            <div class="col-md-6">
+                                <h4>{{event.title}}</h4>
+                                <h4>{{event.information}}</h4>
+                                <h4><i class="far fa-calendar-alt"></i>{{event.date}}</h4>
+                                <h4><i class="far fa-clock"></i>{{event.time}}</h4>
+                                <h4><i class="fas fa-map-marker-alt"></i>Location</h4>
+                                <br>
+                                <ul>
+                                    <li><a href="#">Add to Calendar</a>
+                                        <ul>
+                                            <li><a href="#">Google</a></li>
+                                            <li><a href="#">Outlook</a></li>
+                                        </ul>
+                                    </li>
         
+                                </ul>
+                                {% if user.is_authenticated %}
+                                <p>
+                                    <a href="/logout">Logout</a>
+                                </p>
+                                {% else %}
+                                <a id="modalBtn" data-toggle="modal" data-target="#simpleModal">Log me in</a>
+                                
+                                {% endif %}
+                            
+                            
+                                
+                            </div>
+        
+                        </div>
+                        
+                        
+                                    
+                    </div>
+                    <div id="simpleModal" class="modal">
+                        <div class="modal-content">
+                            <span class="closeBtn">&times;</span>
+                            <p>Log me in</p>
+                        </div>
+                    </div>  
+        
+                    
+                    <script>
+                        //Get modal element
+                        var modal = document.getElementById('simpleModal');
+                        //Get open modal button
+                        var modalBtn = document.getElementById('modalBtn');
+                        //Get close button
+                        var closeBtn = document.getElementsByClassName('closeBtn')[0];
+                        
+                        //Listen for open click
+                        modalBtn.addEventListener('click', openModal);
+                        //Listen for close click
+                        closeBtn.addEventListener('click', closeModal);
+                        //Listen for outside click
+                        window.addEventListener('click', outsideClick);
+        
+                        // Function to open modal 
+                        function openModal(){
+                            modal.style.display = 'block';
+                        }
+                        //Function to close modal
+                        function closeModal(){
+                            modal.style.display = 'none';
+                            
+                        }
+        
+                        function outsideClick(e){
+                            if(e.target == modal){
+                                modal.style.display = 'none';
+                            }
+                            
+                        }
+                            
+                    </script> 
+                        
+
+        </body>
+   
+    </html>
+   
+       
       
    
 

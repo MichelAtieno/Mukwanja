@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'mookh.apps.MookhConfig',
     'bootstrap4',
+    'registration',
+    'bootstrap3',
 ]
 
 MIDDLEWARE = [

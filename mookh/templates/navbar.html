@@ -29,6 +29,27 @@
             
             
             <a class="navbar-brand" href="#"><i class="fas fa-shopping-cart"></i></a>
+            {% if user.is_authenticated %}
+            <li>
+                <a class="nav-link"href="/logout" style="font-size:25px;">
+                    LOG OUT |
+                </a>
+            </li>
+            <li class="nav-item" style="margin-top:-10px;">
+                <a class="nav-link open-nav"href="{% url 'profile' username=user %}" style="font-size:30px;"><i class="fa fa-user"> {{user}}</i></a>
+            </li>
+            {% else %}
+            <li>
+              <a href="accounts/register"><span class="glyphicon glyphicon-user"> </span> REGISTER |</a>
+            </li>
+            <li>
+                <a href="accounts/login">LOGIN <span class="glyphicon glyphicon-log-in"></a>
+            </li>
+                
+                
+            
+            {% endif %}
+
             
     </div>
             

@@ -4,8 +4,8 @@ from django.db import models
 class Event(models.Model):
     poster = models.ImageField(upload_to='events/')
     title = models.CharField(max_length=100)
-    date = models.DateField(auto_now_add=True)
-    time = models.TimeField(auto_now_add=True)
+    date = models.DateField(blank=True, null=True)
+    time = models.TimeField(blank=True, null=True)
     information = models.CharField(max_length = 500)
 
     class Meta:
