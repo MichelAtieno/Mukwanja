@@ -76,7 +76,33 @@
                     <div id="simpleModal" class="modal">
                         <div class="modal-content">
                             <span class="closeBtn">&times;</span>
-                            <p>Log me in</p>
+                            {% if form.errors %}
+                            <p> Password or Username is incorrect </p>
+                            {% endif %}
+                            <div class="panel panel-default">
+                        
+                                <div class="panel-heading">
+                                
+                                </div>
+                                <div class="panel-body">
+                        
+                                <form  action="/accounts/login/" method="post">
+                                    {% csrf_token %}
+                                    {% bootstrap_form form%}
+                        
+                                    <div class="form-group">
+                                    <input type="submit" class="btn btn-primary btn-sm" value="Login">
+                                    </div>
+                        
+                                    <input type="hidden" name="next" value="{{next}}">
+                        
+                                </form>
+                                
+                                
+                        
+                                </div>
+                        
+                            </div>
                         </div>
                     </div>  
         
